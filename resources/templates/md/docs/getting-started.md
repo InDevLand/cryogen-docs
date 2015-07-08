@@ -1,16 +1,17 @@
-{:title "Getting Started"
+{:title "D&eacute;marrer"
  :layout :page
  :page-index 1
- :section "Getting Started"}
+ :section "D&eacute;marrer"}
 
-Cryogen aims to be as simple as possible. There's no need to set up a database or jump through hoops just to get a boilerplate template going.
+Cryog&egrave;ne se veut aussi simple que possible. Il n&apos;est pas n&eacute;cessaire de mettre en place une base de donn&eacute;es ou faire des pieds et des mains juste pour cr&eacute;er un site g&eacute;n&eacute;rique.
 
-To get started, you'll need to have [Leiningen](http://leiningen.org/) installed. Once you have that ready, here's how to get the base template.
+Pour d&eacute;marrer, vous avez besoin que [Leiningen](http://leiningen.org/) soit install&eacute;. Une fois que c&apos;est fait, voici comment cr&eacute;er un site de base.
+
 
 ```
-~ $ lein new cryogen my-blog
-~ $ cd my-blog
-~/my-blog $ lein ring server
+~ $ lein new cryogen mon-blog
+~ $ cd mon-blog
+~/mon-blog $ lein ring server
 ```
 
-Once the server starts, you can visit your site at `localhost:3000`. The first thing you'll see is a helpful README on what to do next.
+Lorsque le serveur est d&eacute;marr&eacute;, vous pouvez visiter votre site &agrave; l&apos;adresse [localhost:3000](http://localhost:3000). La premi&egrave;re chose que vous verrez est un README reprenant les &eacute;tapes suivantes.
