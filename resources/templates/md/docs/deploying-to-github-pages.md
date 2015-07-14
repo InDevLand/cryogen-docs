@@ -1,64 +1,64 @@
 {:title "GitHub Pages"
  :layout :page
  :page-index 6
- :section "Deployment"}
- 
-[GitHub Pages](https://pages.GitHub.com/) are freely hosted web pages on GitHub's `GitHub.io` domain. Normally, they are powered by [Jekyll](http://jekyllrb.com) but because GitHub Pages supports HTML content, it is possible to host your Cryogen-powered sites as well.
+ :section "D&eacute;ploiement"}
 
-GitHub provides two basic types of hosting: *user/organization pages* and *project pages*. Both of these work by looking at specific branches of your repositories on GitHub. The way to deploy these two types of sites are very similar and only differ in their initial setup.
+[Les Pages GitHub](https://pages.GitHub.com/) permettent l&apos;h&eacute;bergement gratuit de sites dans le domaine `github.io` appartenant &agrave; GitHub. Normallement, ces sites sont produits &agrave; l&apos;aide de [Jekyll](http://jekyllrb.com) mais comme les Pages GitHub supportent le contenu HTML, il est possible d&apos;&eacute;galement h&eacute;berger votre site &agrave; l&apos;aide de Cryogen.
 
-## Setting up User and Organization Pages
+GitHub propose deux types d&apos;h&eacute;bergement de base: *les pages utilisateur/organisation* et *les pages projet*. Chacun d&apos;eux fonctionne en se basant sur des branches sp&eacute;cifiques de vos d&eacute;p&ocirc;ts sur GitHub. La fa&ccedil;on de d&eacute;ployer ces deux types de sites est semblable et diff&egrave;re uniquement dans la configuration de d&eacute;part.
 
-User and organization pages must live in a GitHub repository dedicated to only your site's files. This repository must be named *username*.GitHub.io. Where *username* is your GitHub username or the name of the organization. For example, `lacarmen.GitHub.io`.
+## Configurer les pages Utilisateurs et Organisation
 
-Content from the `master` branch of your repository will be used to build and publish your site to your GitHub page.
+Les pages Utilisateurs et Organisation doivent r&eacute;sider dans un d&eacute;p&ocirc;t GitHub sp&eacute;cifiquement d&eacute;di&eacute; &agrave; cela. Ce d&eacute;p&ocirc;t doit s&apos;appeler *utilisateur*.GitHub.io. *utilisateur* est votre compte GitHub ou le nom  de l&apos;organisation. Par exemple, `lacarmen.GitHub.io`.
 
-If you'd like to create a user or organization page with Cryogen, please make sure the `blog-prefix` field in the configuration file is empty.
+Le contenu de la branche `master` de votre d&eacute;p&ocirc;t sera utilis&eacute; pour construire et publier votre site sur vos pages GitHub.
 
-## Setting up Project Pages
+Si vous souhaitez cr&eacute;er des pages utilisateur ou organisation avec Cryogen, assurez-vous que le champ de l&apos;option `blog-prefix` dans le fichier de configuration est vide.
 
-Unlike user/organization pages, project pages are kept in the same repository as the project itself, except the site's content is stored in a specially named `gh-pages` branch. The output will become available under a subpath of your user page domain, such as `lacarmen.GitHub.io/cryogen`.
+## Configurer les pages Projet
 
-The Cryogen repository is a good example of this structure. The [master branch](https://GitHub.com/lacarmen/cryogen/tree/master) contains the boilerplate lein-template for Cryogen and the website that you're looking at right now is contained in the [gh-pages branch](https://GitHub.com/lacarmen/cryogen/tree/gh-pages) of the same repository.
+Contrairement aux pages utilisateur/organisation, les pages Projet r&eacute;sident dans le m&ecirc;me d&eacute;p&ocirc;t que le projet lui-m&ecirc;me, si ce n&apos;est que le contenu se trouve dans une branche sp&eacute;cifique appel&eacute;e `gh-pages`. Le contenu est alors disponible dans un sous-chemin du domaine de vos pages utilisateur, par exemple `lacarmen.GitHub.io/cryogen`.
 
-If you'd like to use Cryogen to create a page for your project, please make sure the `blog-prefix` field in the configuration file matches the name of your project's repository.
+Le d&eacute;p&ocirc;t cryogen est un bon exemple de cette structure. La [branche master](https://GitHub.com/lacarmen/cryogen/tree/master) le mod&egrave;le standard lein-template pour Cryogen tandis que le site web que vous consultez en ce moment est contenu dans la [branche gh-pages](https://GitHub.com/lacarmen/cryogen/tree/gh-pages) du m&ecirc;me d&eacute;p&ocirc;t.
 
-### Creating the gh-pages branch
+Si vous souhaitez utiliser Cryogen pour cr&eacute;er un site pour votre projet, assurez-vous que le champ de l&apos;option `blog-prefix` dans le fichier de configuration corresponde au nom de d&eacute;p&ocirc;t de votre projet.
 
-To create the branch for your project page, you must create a new "orphan" branch.
+### Créer la branche gh-pages
 
-The safest way to do this is to create a fresh clone of your repository
+Pour cr&eacute;er la branche pour les pages de votre projet, vous devez cr&eacute;er une nouvelle branche &quot;orpheline&quot;.
+
+La mani&egrave;re la plus sure d&apos;y parvenir est de cr&eacute;er un nouveau clône de votre d&eacute;p&ocirc;t.
 
 ```
 $ git clone https://GitHub.com/user/repository.git
-# Clone your repository
+# Clôner votre d&eacute;p&ocirc;t
 ```
 
-Once you have a fresh repository, you'll need to create the `gh-pages` branch and rid it of all its content:
+Une fois que vous avez un nouveau d&eacute;p&ocirc;t, il est n&eacute;cessaire de cr&eacute;er la branche `gh-pages` et la vider de son contenu.
 
 ```
 $ cd repository
 
 $ git checkout --orphan gh-pages
-# Creates a branch without any parents
-# Switched to a new branch 'gh-pages'
+# Cr&eacute;e une branche sans parents
+# Postionnement dans la nouvelle branche 'gh-pages'
 
 $ git rm -rf .
-# Remove all files from the old working tree
+# Supprime tous les fichiers de l'ancienne branche
 # rm .gitignore
 ```
 
-  
-## Deploying to GitHub Pages
 
-Once you've set up your repository for the type of GitHub Page that you want, copy over all your files and folders under the root directory of your site - `public` if you're creating a user page; `public/YOUR-PROJECT-REPO-NAME` if you're creating a project page.
- 
-The last step is to push your content to GitHub. 
+## D&eacute;ployer sur GitHub Pages
+
+Une fois que vous configur&eacute; votre d&eacute;p&ocirc;t pour le type de pages GitHug que vous souhaitez, copiez vos fichiers et r&eacute;pertoires dans le r&eacute;pertoire principal de votre site - `public` si vous cr&eacute;ez des pages Utilisateur; `public/NOM-DU-DEPOT-DE-VOTRE-PROJET` si vous cr&eacute;ez des pages Projet.
+
+La derni&egrave;re &eacute;tape consiste &agrave; pousser votre contenu vers GitHub.
 
 ```
 $ git add *
-$ git commit -a -m "Initial page commit"
+$ git commit -a -m "Commit initial pages"
 $ git push origin gh-pages
 ```
 
-If you make any changes to your site, simply follow this deployment step to update your GitHub Page.
+Si vous apportez des modifications &agrave; votre site, suivez simplement ces &eacute;tapes de d&eacute;ploiement pour mettre &agrave; jour vos pages GitHub.
