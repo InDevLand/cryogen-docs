@@ -1,28 +1,30 @@
-{:title "Nginx on a VPS"
+{:title "VPS avec nginx"
  :layout :page
  :page-index 7
- :section "Deployment"}
- 
-Virtual Private Servers (VPS), such as those provided by [DigitalOcean](https://www.digitalocean.com/), are an excellent way to host a site with static content for around $5 per month. Here's a quick rundown on how to serve your content with [Nginx](http://wiki.nginx.org/) on VPS running Ubuntu.
+ :section "D&eacute;ploiement"}
 
-## Setting up Nginx
+Un serveur priv&eacute; virtuel (VPS), tel que ceux disponibles chez [DigitalOcean](https://www.digitalocean.com/), est une bonne mani&egrave;re d&apos;h&eacute;berger un site au contenu statique pour environ 5$ par mois. Voici une proc&eacute;dure rapide sur comment rendre votre contenu disponible avec [Nginx](http://wiki.nginx.org/) s&apos;ex&eacute;cutant dans un VPS sous Ubuntu.
 
-The first thing you'll need to do is install Nginx if you don't already have it on your server.
+
+
+## Configurer nginx
+
+La premi&egrave;re chose &agrave; faire est d&apos;installer nginx si ce n&apos;est d&eacute;j&agrave; fait.
 
 ```
 $ sudo apt-get install nginx
 ```
 
-Next, you'll want to create a directory for your site's content and make it public. For the purposes of this guide, let's suppose we're on a user called `deploy` with sudo permissions. 
+Ensuite, cr&eacute;ez un r&eacute;pertoire pour le contenu de votre site et rendez le public. Pour ce guide, supposons que nous utilisons un utilisateur appel&eacute; `deploy` qui dispose des droits sudo.
 
 ```
 $ mkdir ~/site
 $ chmod 755 ~/site
 ```
 
-Next, you'll want to make a backup of the default configuration in /etc/nginx/sites-available/default and replace it with one of the following:
+Maintenenat, faite une sauvegarde de la configuration par d&eacute;faut dans /etc/nginx/sites-available/default et remplacez le contenu avec un des choix suivants:
 
-### Configuration for sites with no blog-prefix
+### Configuration d'un site sans blog-prefix
 
 ```
 server {
@@ -31,7 +33,7 @@ server {
  root /home/deploy/site;
  index index.html index.htm;
 
- server_name YOURDOMAIN.COM www.YOURDOMAIN.COM;
+ server_name VOTREDOMAINE.COM www.VOTREDOMAINE.COM;
 
  access_log /var/log/nginx/access.log;
  error_log /var/log/nginx/error.log;
@@ -45,11 +47,11 @@ server {
 }
 ```
 
-Simply set `YOURDOMAIN.COM` to the domain of your site in the configuration and ensure the static content is available at `/home/deploy/site/`. Finally, place your custom error page in the `/home/deploy/site/404.html` file.
+Remplacez simplement `VOTREDOMAINE.COM` par votre domaine pour le site dans la configuration et v&eacute;rifiez que le contenu statique est disponible dnas `/home/deploy/site/`. Pour finir, placez votre page d&apos;erreur personalis&eacute;e dans le fichier `/home/deploy/site/404.html`.
 
-### Configuration for sites with a blog-prefix
+### Configuration d'un site utilisant un blog-prefix
 
-If you've provided a `blog-prefix` in your Cryogen configuration you will have to reflect that in your nginx configuration file.
+Si vous avez d&eacute;fini un `blog-prefix` dans le fichier de configuration de Cryogen, vous devez en tenir compte dans la configuration de nginx.
 
 ```
 server{
@@ -59,7 +61,7 @@ server{
  index index.html index.htm;
  error_page    404 = /404.html;
 
- server_name YOURDOMAIN.COM www.YOURDOMAIN.COM;
+ server_name VOTREDOMAINE.COM www.VOTREDOMAINE.COM;
 
  access_log /var/log/nginx/access.log;
  error_log /var/log/nginx/error.log;
@@ -75,16 +77,16 @@ server{
 }
 ```
 
-Simply set `YOURDOMAIN.COM` to the domain of your site in the configuration and ensure the static content is available at `/home/deploy/site/BLOG-PREFIX/`. Finally, place your custom error page in the `/home/deploy/site/404.html` file.
+Repmplacez simplement `VOTREDOMAINE.COM` par votre domaine pour le site dans la configuration et v&eacute;rifiez que le conentu statique est disponible dans `/home/deploy/site/BLOG-PREFIX/`. Pour finir, placez votre page d&apos;erreur personalis&eacute;e dans le fichier `/home/deploy/site/404.html`.
 
-Once you've changed your nginx configuration file, restart nginx.
+Une fois le fichier de configuration de nginx adapt&eacute;, red&eacute;marrez nginx.
 
 ```
 $ sudo service nginx restart
 ```
 
-## Deploying Your Site
+## D&eacute;ployer votre site
 
-When your server is ready to serve your site, you'll need to upload your site to your server to start serving your content. You can do this with a FTP client such as [FileZilla](https://filezilla-project.org/) or with the `scp` command from the terminal.
+Quand votre serveur est pr&ecirc;t &agrave; h&eacute;berger votre site, vous devez t&eacute;l&eacute;charger le contenu vers votre serveur. Vous pouvez le faire en utilisant un client FTP comme [FileZilla](https://filezilla-project.org/) ou en utilisant la commande `scp` depuis un terminal.
 
-If you'd like to change or add more content to your site after you get it up and running, simply transfer the content generated by Cryogen once again.
+Si vous souhaitez cnager ou ajouter plus de contenu &agrave; votre site apr&egrave;s son d&eacute;ploiement, retansferez simplement le contenu g&eacute;n&eacute;r&eacute; par Cryogen.
