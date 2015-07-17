@@ -83,7 +83,7 @@ Cryog&egrave;ne offre des options de configuration flexibles. Le fichier de conf
       </tr>
       <tr>
         <td>`rss-filters`</td>
-        <td>Tags sp&eacute;cfiques pour lesquelles vous voulez qu&apos;un flux RSS soit g&eacute;n&eacute;r&eacute;.</td>
+        <td>Tags sp&eacute;cifiques pour lesquelles vous voulez qu&apos;un flux RSS soit g&eacute;n&eacute;r&eacute;.</td>
       </tr>
       <tr>
         <td>`sass-src`</td>
@@ -95,7 +95,7 @@ Cryog&egrave;ne offre des options de configuration flexibles. Le fichier de conf
       </tr>
       <tr>
         <td>`resources`</td>
-        <td>Un vecteur reprenant le nom des r&eacute;pertoires et des fichiers &agrave; copier depuis `template` vers `public` lors de la compilation.</td>
+        <td>Un vecteur reprenant les noms des r&eacute;pertoires et des fichiers &agrave; copier depuis `template` vers `public` lors de la compilation.</td>
       </tr>
       <tr>
         <td>`keep-files`</td>

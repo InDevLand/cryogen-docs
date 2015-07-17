@@ -3,7 +3,7 @@
  :page-index 6
  :section "D&eacute;ploiement"}
 
-[Les Pages GitHub](https://pages.GitHub.com/) permettent l&apos;h&eacute;bergement gratuit de sites dans le domaine `github.io` appartenant &agrave; GitHub. Normallement, ces sites sont produits &agrave; l&apos;aide de [Jekyll](http://jekyllrb.com) mais comme les Pages GitHub supportent le contenu HTML, il est possible d&apos;&eacute;galement h&eacute;berger votre site &agrave; l&apos;aide de Cryogen.
+[Les Pages GitHub](https://pages.GitHub.com/) permettent l&apos;h&eacute;bergement gratuit de sites dans le domaine `github.io` appartenant &agrave; GitHub. Normalement, ces sites sont produits &agrave; l&apos;aide de [Jekyll](http://jekyllrb.com) mais comme les Pages GitHub supportent le contenu HTML, il est possible d&apos;&eacute;galement h&eacute;berger votre site &agrave; l&apos;aide de Cryogen.
 
 GitHub propose deux types d&apos;h&eacute;bergement de base: *les pages utilisateur/organisation* et *les pages projet*. Chacun d&apos;eux fonctionne en se basant sur des branches sp&eacute;cifiques de vos d&eacute;p&ocirc;ts sur GitHub. La fa&ccedil;on de d&eacute;ployer ces deux types de sites est semblable et diff&egrave;re uniquement dans la configuration de d&eacute;part.
 
@@ -27,7 +27,7 @@ Si vous souhaitez utiliser Cryogen pour cr&eacute;er un site pour votre projet, 
 
 Pour cr&eacute;er la branche pour les pages de votre projet, vous devez cr&eacute;er une nouvelle branche &quot;orpheline&quot;.
 
-La mani&egrave;re la plus sure d&apos;y parvenir est de cr&eacute;er un nouveau clône de votre d&eacute;p&ocirc;t.
+La mani&egrave;re la plus sure d&apos;y parvenir est de cr&eacute;er un nouveau clone de votre d&eacute;p&ocirc;t.
 
 ```
 $ git clone https://GitHub.com/user/repository.git
@@ -51,7 +51,7 @@ $ git rm -rf .
 
 ## D&eacute;ployer sur GitHub Pages
 
-Une fois que vous configur&eacute; votre d&eacute;p&ocirc;t pour le type de pages GitHug que vous souhaitez, copiez vos fichiers et r&eacute;pertoires dans le r&eacute;pertoire principal de votre site - `public` si vous cr&eacute;ez des pages Utilisateur; `public/NOM-DU-DEPOT-DE-VOTRE-PROJET` si vous cr&eacute;ez des pages Projet.
+Une fois que vous avez configur&eacute; votre d&eacute;p&ocirc;t pour le type de pages GitHug que vous souhaitez, copiez vos fichiers et r&eacute;pertoires dans le r&eacute;pertoire principal de votre site - `public` si vous cr&eacute;ez des pages Utilisateur; `public/NOM-DU-DEPOT-DE-VOTRE-PROJET` si vous cr&eacute;ez des pages Projet.
 
 La derni&egrave;re &eacute;tape consiste &agrave; pousser votre contenu vers GitHub.
 
